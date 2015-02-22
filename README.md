@@ -51,11 +51,11 @@ Our index.html file:
 var gulp = require('gulp');
 var deleteLines = require('gulp-delete-lines');
 
-gulp.task('insert-scripts-bundle', function () {
+gulp.task('remove-scripts', function () {
   gulp.src('./build/index.html')
    .pipe(deleteLines({
       'filters': [
-      /<script type=.*text.*javascript.* src=/
+      /<script\s+type=["']text\/javascript["']\s+src=/i
       ]
     }))
   .pipe(gulp.dest('dist'));
@@ -67,11 +67,11 @@ gulp.task('insert-scripts-bundle', function () {
 var gulp = require('gulp');
 var deleteLines = require('gulp-delete-lines');
 
-gulp.task('insert-styles-bundle', function () {
+gulp.task('remove-styles', function () {
   gulp.src('./build/index.html')
   .pipe(deleteLines({
       'filters': [
-      /<link rel=.*stylesheet.* type=/
+      /<link\s+rel=["']/i
       ]
     }))
   .pipe(gulp.dest('dist'));
