@@ -2,7 +2,7 @@
 A gulp plugin that will delete all lines that matches one of the given regex filters.
 
 ## Notes
-With respect to Rolf Erik Lekangs [work] (https://www.npmjs.com/package/gulp-remove-lines) but now with minor bug fixes.
+With respect to Rolf Erik Lekangs [work](https://www.npmjs.com/package/gulp-remove-lines) but now with minor bug fixes.
 
 ## Install
 
