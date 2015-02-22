@@ -1,7 +1,7 @@
 {
   "name": "gulp-delete-lines",
-  "version": "0.0.3",
-  "description": "A gulp plugin that will remove all lines that matches one of the given regex filters.",
+  "version": "0.0.4",
+  "description": "A gulp plugin that will delete all lines that matches one of the given regex filters.",
   "main": "index.js",
   "dependencies": {
     "gulp-util": ">=2.2.0",
