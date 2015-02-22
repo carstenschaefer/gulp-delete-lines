@@ -1,6 +1,7 @@
 # gulp-delete-lines
 A gulp plugin that will remove all lines that matches one of the given regex filters.
 
+## Notes
 With respect to Rolf Erik Lekangs work [https://www.npmjs.com/package/gulp-remove-lines] but now with minor bug fixes.
 
 ## Install
@@ -70,7 +71,7 @@ gulp.task('insert-styles-bundle', function () {
   gulp.src('./build/index.html')
   .pipe(deleteLines({
       'filters': [
-      /<link rel=.*stylesheet.* type=.*text/
+      /<link rel=.*stylesheet.* type=/
       ]
     }))
   .pipe(gulp.dest('dist'));
