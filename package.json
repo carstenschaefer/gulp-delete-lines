@@ -1,0 +1,34 @@
+{
+  "name": "gulp-delete-lines",
+  "version": "0.0.1",
+  "description": "A gulp plugin that will remove all lines that matches one of the given regex filters. With respect to Rolf Erik Lekangs work [https://www.npmjs.com/package/gulp-remove-lines] but now with minor bug fixes.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-util": ">=2.2.0",
+    "event-stream": "~3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/carstenschaefer/gulp-delete-lines.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "delete",
+	"remove",
+    "search",
+    "line",
+    "regex",
+    "filter"
+  ],
+  "author": "Carsten Schaefer <Carsten.Schaefer@G-TAC.de> (http://www.g-tac.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carstenschaefer/gulp-delete-lines/issues"
+  },
+  "homepage": "https://github.com/carstenschaefer/gulp-delete-lines"
+}
