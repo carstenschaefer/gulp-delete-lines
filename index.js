@@ -7,6 +7,7 @@ module.exports = function (opt) {
     if (file.isStream()) return this.emit('error', new Error("gulp-delete-lines: Streaming not supported"));
     var str = file.contents.toString('utf8');
     var line, _i, _j, _len, lines;
+    var isMatched = true;
     var newLines = [];
 
     lines = str.split(/\r\n|\r|\n/g);
@@ -14,8 +15,14 @@ module.exports = function (opt) {
     for (_i = 0; _i < lines.length; _i++) {
 
       for (_j = 0; _j < opt.filters.length; _j++) {
-        if (! lines[_i].match(opt.filters[_j])) {
-			newLines.push(lines[_i]);
+        if ( ! lines[_i].match(opt.filters[_j])) {
+           isMatched = false;
+        }
+        else{
+          break;
+        }
+        if (_j == opt.filters.length-1 && !isMatched){
+          newLines.push(lines[_i]); 
         }
       }
     }
