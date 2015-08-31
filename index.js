@@ -12,10 +12,11 @@ module.exports = function (opt) {
     lines = str.split(/\r\n|\r|\n/g);
 
     for (_i = 0; _i < lines.length; _i++) {
-
+      newLines.push(lines[_i]);
       for (_j = 0; _j < opt.filters.length; _j++) {
-        if (! lines[_i].match(opt.filters[_j])) {
-			newLines.push(lines[_i]);
+        if (lines[_i].match(opt.filters[_j])) {
+		newLines.pop();
+		break;
         }
       }
     }
