@@ -21,9 +21,10 @@ module.exports = function (opt) {
       }
     }
 
-    str = newLines.join('\n');
-
-    file.contents = new Buffer(str);
+    if (lines.length != newLines.length) {
+      str = newLines.join('\n');
+      file.contents = new Buffer(str);
+    }
     this.emit('data', file);
   }
 
