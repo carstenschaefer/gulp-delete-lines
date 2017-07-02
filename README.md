@@ -1,15 +1,22 @@
-# gulp-delete-lines
+# gulp-rm-lines
 A gulp plugin that will delete all lines that matches one of the given regex filters.
 
 ## Notes
-With respect to Rolf Erik Lekangs [work](https://www.npmjs.com/package/gulp-remove-lines) but now with minor bug fixes.
+With respect to Carsten Schäfer's [work](https://www.npmjs.com/package/gulp-delete-lines) but now supports multiple filters.
+
+With respect to Rolf Erik Lekang's [work](https://www.npmjs.com/package/gulp-remove-lines) but with minor bug fixes.
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-delete-lines)
+### `yarn`
+```
+yarn add --dev gulp-rm-lines
+```
+
+### `npm`
 
 ```
-npm install --save-dev gulp-delete-lines
+npm install --save-dev gulp-rm-lines
 ```
 
 
@@ -25,9 +32,9 @@ Our index.html file:
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="format-detection" content="telephone=no" />
   
-  <link rel="stylesheet" type="text/css" href="vendor/normalize.css/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/sass/desktop.css" />
+  <link rel="stylesheet" href="vendor/normalize.css/normalize.css" />
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/sass/desktop.css" />
   
 </head>
 <body ng-controller="AppController">
@@ -35,43 +42,31 @@ Our index.html file:
       markup goes here...
   </div>
   
-  <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
-  <script type="text/javascript" src="app/app_Desktop.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="app/app_Desktop.js"></script>
   
-  <script type="text/javascript">
+  <script>
     angular.bootstrap(document, ['ourApp']);
   </script>
 </body>
 </html>
 ```
 
-### Example 1: Removes all script tags in index.html
+### Example
+
+Remove all external scripts and stylesheets from `index.html`
+
 ```js
-var gulp = require('gulp');
-var deleteLines = require('gulp-delete-lines');
+const gulp = require('gulp'),
+  rmLines = require('gulp-rm-lines');
 
 gulp.task('remove-scripts', function () {
   gulp.src('./build/index.html')
-   .pipe(deleteLines({
+   .pipe(rmLines({
       'filters': [
-      /<script\s+type=["']text\/javascript["']\s+src=/i
-      ]
-    }))
-  .pipe(gulp.dest('dist'));
-});
-```
-
-### Example 2: Removes all style tags in index.html
-```js
-var gulp = require('gulp');
-var deleteLines = require('gulp-delete-lines');
-
-gulp.task('remove-styles', function () {
-  gulp.src('./build/index.html')
-  .pipe(deleteLines({
-      'filters': [
-      /<link\s+rel=["']/i
+        /<script\s+src=['"]/i,
+        /<link\s+rel=['"]stylesheet['"]/i,
       ]
     }))
   .pipe(gulp.dest('dist'));
@@ -80,4 +75,4 @@ gulp.task('remove-styles', function () {
 
 ## License
 
-MIT © [Carsten Schaefer](http://www.g-tac.de)
+MIT © [Sam Grundman](https://github.com/YodasWs)

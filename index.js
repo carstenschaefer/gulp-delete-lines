@@ -1,22 +1,27 @@
-var es = require('event-stream'),
+const es = require('event-stream'),
   gutil = require('gulp-util');
 
 module.exports = function (opt) {
-  function gulpDeleteLines(file) {
-    if (file.isNull()) return this.emit('data', file);
-    if (file.isStream()) return this.emit('error', new Error("gulp-delete-lines: Streaming not supported"));
-    var str = file.contents.toString('utf8');
-    var line, _i, _j, _len, lines;
-    var newLines = [];
+  function gulpRmLines(file) {
+    if (file.isNull()) {
+      return this.emit('data', file);
+    }
 
-    lines = str.split(/\r\n|\r|\n/g);
+    if (file.isStream()) {
+      return this.emit('error', new Error("gulp-delete-lines: Streaming not supported"));
+    }
 
-    for (_i = 0; _i < lines.length; _i++) {
-      newLines.push(lines[_i]);
-      for (_j = 0; _j < opt.filters.length; _j++) {
-        if (lines[_i].match(opt.filters[_j])) {
-		newLines.pop();
-		break;
+    let str = file.contents.toString('utf8');
+    let newLines = [];
+
+    const lines = str.split(/\r\n|\r|\n/g);
+
+    for (let i=0; i<lines.length; i++) {
+      newLines.push(lines[i]);
+      for (let j=0; j<opt.filters.length; j++) {
+        if (lines[i].match(opt.filters[j])) {
+          newLines.pop();
+          break;
         }
       }
     }
@@ -27,5 +32,5 @@ module.exports = function (opt) {
     this.emit('data', file);
   }
 
-  return es.through(gulpDeleteLines);
+  return es.through(gulpRmLines);
 };
