@@ -1,11 +1,11 @@
 {
-  "name": "gulp-delete-lines",
-  "version": "0.0.7",
-  "description": "A gulp plugin that will delete all lines that matches one of the given regex filters.",
+  "name": "gulp-rm-lines",
+  "version": "0.0.9",
+  "description": "A gulp plugin that will delete all lines that match one of the given regex filters.",
   "main": "index.js",
   "dependencies": {
     "gulp-util": ">=2.2.0",
-    "event-stream": "~3.1.0"
+    "through2": "^2.0.3"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,22 +13,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/carstenschaefer/gulp-delete-lines.git"
+    "url": "git://github.com/YodasWs/gulp-rm-lines.git"
   },
   "keywords": [
     "gulp",
     "gulpplugin",
     "delete",
-	"remove",
+    "remove",
     "search",
     "line",
     "regex",
     "filter"
   ],
-  "author": "Carsten Schaefer <Carsten.Schaefer@G-TAC.de> (http://www.g-tac.de)",
+  "author": "Sam Grundman <sam.gulp-rm-lines@yodas.ws>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/carstenschaefer/gulp-delete-lines/issues"
+    "url": "https://github.com/YodasWs/gulp-rm-lines/issues"
   },
-  "homepage": "https://github.com/carstenschaefer/gulp-delete-lines"
+  "homepage": "https://github.com/YodasWs/gulp-rm-lines"
 }
