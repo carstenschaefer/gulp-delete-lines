@@ -1,10 +1,9 @@
 {
   "name": "gulp-rm-lines",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A gulp plugin that will delete all lines that match one of the given regex filters.",
   "main": "index.js",
   "dependencies": {
-    "gulp-util": ">=2.2.0",
     "through2": "^2.0.3"
   },
   "devDependencies": {},
